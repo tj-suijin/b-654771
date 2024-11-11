@@ -20,22 +20,28 @@
   }
 
   body {
-    @apply bg-[#121212] text-foreground font-['Inter'];
+    @apply bg-[#121212] text-foreground font-['Inter'] m-0 p-0;
   }
 }
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 1200px;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100vh;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .bento-card {
-  @apply bg-card p-6 rounded-2xl transition-all duration-300 hover:bg-card-hover;
+  @apply bg-card p-8 rounded-2xl transition-all duration-300 hover:bg-card-hover;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-card:hover {
@@ -46,5 +52,10 @@
 @media (max-width: 768px) {
   .bento-grid {
     grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+  
+  .bento-card {
+    min-height: 150px;
   }
 }
