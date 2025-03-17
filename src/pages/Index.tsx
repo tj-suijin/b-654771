@@ -37,7 +37,7 @@ const Index = () => {
 
         {/* Twitch Embed (replacing Time Card) */}
         <div className="bento-card">
-          <TwitchEmbed defaultChannel="twitchdev" />
+          <TwitchEmbed />
         </div>
 
         {/* Contact Card */}
