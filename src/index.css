@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -6,13 +7,14 @@
 
 @layer base {
   :root {
-    --background: 0 0% 7%;
+    --background: 260 15% 9%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 10%;
-    --border: 0 0% 14.9%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --radius: 1rem;
+    --card: 260 15% 12%;
+    --card-hover: 260 15% 16%;
+    --border: 260 15% 20%;
+    --primary: 255 95% 70%;
+    --primary-foreground: 0 0% 98%;
+    --radius: 1.5rem;
   }
 
   * {
@@ -21,13 +23,14 @@
 
   body {
     @apply bg-[#121212] text-foreground font-['Inter'] m-0 p-0;
+    background: radial-gradient(circle at top left, #181525, #121212);
   }
 }
 
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  gap: 1.25rem;
   padding: 1.5rem;
   width: 100%;
   max-width: 100%;
@@ -37,16 +40,43 @@
 }
 
 .bento-card {
-  @apply bg-card p-8 rounded-2xl transition-all duration-300 hover:bg-card-hover;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  min-height: 200px;
+  @apply backdrop-blur-md bg-[#1e1a2e]/70 p-8 rounded-3xl transition-all duration-300;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  min-height: 230px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
 .bento-card:hover {
+  @apply bg-[#232033]/80;
   transform: translateY(-4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), 
+              0 2px 4px rgba(148, 116, 255, 0.1);
+}
+
+.ios-blur {
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+}
+
+.ios-button {
+  @apply rounded-2xl bg-[#9b87f5]/20 backdrop-blur-md px-5 py-3 transition-all;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ios-button:hover {
+  @apply bg-[#9b87f5]/30;
+}
+
+.ios-icon {
+  @apply bg-[#9b87f5]/10 p-3 rounded-full transition-all;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ios-icon:hover {
+  @apply bg-[#9b87f5]/20;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
@@ -56,6 +86,6 @@
   }
   
   .bento-card {
-    min-height: 150px;
+    min-height: 180px;
   }
 }
