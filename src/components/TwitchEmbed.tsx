@@ -2,20 +2,9 @@
 import { useState } from "react";
 import { Twitch, RefreshCw } from "lucide-react";
 
-interface TwitchEmbedProps {
-  defaultChannel?: string;
-}
-
-const TwitchEmbed = ({ defaultChannel = "twitch" }: TwitchEmbedProps) => {
-  const [channel, setChannel] = useState(defaultChannel);
-  const [inputChannel, setInputChannel] = useState(defaultChannel);
+const TwitchEmbed = () => {
+  const channel = "wavebrotj";
   const [isLoading, setIsLoading] = useState(true);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setChannel(inputChannel);
-    setIsLoading(true);
-  };
 
   const handleIframeLoad = () => {
     setIsLoading(false);
@@ -45,22 +34,6 @@ const TwitchEmbed = ({ defaultChannel = "twitch" }: TwitchEmbedProps) => {
           <RefreshCw className="w-4 h-4" />
         </button>
       </div>
-      
-      <form onSubmit={handleSubmit} className="mb-3 flex">
-        <input
-          type="text"
-          value={inputChannel}
-          onChange={(e) => setInputChannel(e.target.value)}
-          placeholder="Channel name"
-          className="flex-1 bg-gray-800 border border-gray-700 rounded-l-lg px-3 py-1 text-sm focus:outline-none focus:ring-1 focus:ring-purple-500"
-        />
-        <button
-          type="submit"
-          className="bg-purple-600 hover:bg-purple-700 text-white rounded-r-lg px-3 py-1 text-sm transition-colors"
-        >
-          Watch
-        </button>
-      </form>
       
       <div className="relative flex-1 min-h-32 bg-black rounded-lg overflow-hidden">
         {isLoading && (
