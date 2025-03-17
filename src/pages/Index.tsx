@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
+
+import { useState } from "react";
 import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import TwitchEmbed from "../components/TwitchEmbed";
 
 const Index = () => {
-  const [time, setTime] = useState(new Date());
-
-  useEffect(() => {
-    const timer = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="min-h-screen bg-[#121212] text-white">
       <div className="bento-grid">
@@ -40,12 +35,9 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Time Card */}
+        {/* Twitch Embed (replacing Time Card) */}
         <div className="bento-card">
-          <h2 className="text-lg text-gray-400 mb-4">Current Time</h2>
-          <p className="text-3xl font-bold font-mono">
-            {time.toLocaleTimeString()}
-          </p>
+          <TwitchEmbed defaultChannel="twitchdev" />
         </div>
 
         {/* Contact Card */}
@@ -82,33 +74,6 @@ const Index = () => {
             <div className="p-6 bg-card-hover rounded-lg">
               <h3 className="text-xl font-bold mb-3">Project 2</h3>
               <p className="text-gray-300">Description of another cool project</p>
-            </div>
-          </div>
-        </div>
-
-        {/* New Experience Card */}
-        <div className="bento-card col-span-3">
-          <h2 className="text-2xl font-bold mb-6">Experience</h2>
-          <div className="space-y-6">
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-xl font-bold text-blue-400">Senior Developer</h3>
-                <p className="text-gray-300">Tech Company Inc.</p>
-                <p className="text-gray-400 mt-2">
-                  Led development of multiple high-impact projects and mentored junior developers.
-                </p>
-              </div>
-              <span className="text-gray-400">2020 - Present</span>
-            </div>
-            <div className="flex justify-between items-start">
-              <div>
-                <h3 className="text-xl font-bold text-blue-400">Full Stack Developer</h3>
-                <p className="text-gray-300">Digital Solutions Ltd.</p>
-                <p className="text-gray-400 mt-2">
-                  Developed and maintained various web applications using modern technologies.
-                </p>
-              </div>
-              <span className="text-gray-400">2018 - 2020</span>
             </div>
           </div>
         </div>
